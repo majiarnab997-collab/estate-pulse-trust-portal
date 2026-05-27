@@ -1,0 +1,6 @@
+{
+  "name": "Customer Trust Portal",
+  "description": "A transparent real estate customer portal providing property tracking, document review status, billing history, progress gallery, and a Gemini-powered AI document & policy explainable assistant.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

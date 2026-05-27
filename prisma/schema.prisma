@@ -1,0 +1,204 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+enum Role {
+  CUSTOMER
+  ADMIN
+}
+
+enum DocumentStatus {
+  UPLOADED
+  UNDER_REVIEW
+  VERIFIED
+  APPROVED
+  REJECTED
+}
+
+enum PaymentStatus {
+  PENDING
+  PAID
+  OVERDUE
+}
+
+enum MediaType {
+  IMAGE
+  VIDEO
+  WALKTHROUGH
+}
+
+model User {
+  id              String             @id @default(uuid())
+  email           String             @unique
+  passwordHash    String
+  name            String
+  phone           String?
+  role            Role               @default(CUSTOMER)
+  createdAt       DateTime           @default(now())
+  updatedAt       DateTime           @updatedAt
+  isDeleted       Boolean            @default(false)
+
+  // Relations
+  allocations     PropertyAllocation[]
+  documents       Document[]
+  notifications   Notification[]
+  adminLogs       AdminLog[]         @relation("AdminActionOwner")
+
+  @@index([email])
+  @@map("users")
+}
+
+model Property {
+  id                 String               @id @default(uuid())
+  plotNumber         String               @unique
+  plotSize           String               // e.g. "2400 sq.ft."
+  location           String
+  googleMapsUrl      String?
+  projectPhase       String               // e.g. "Phase II - Foundation Stage"
+  amenities          String[]             // List of amenities
+  constructionStatus Int                  // e.g. 45 (for 45%)
+  brochureUrl        String?
+  legalClearance     Boolean              @default(true)
+  createdAt          DateTime             @default(now())
+  updatedAt          DateTime             @updatedAt
+  isDeleted          Boolean              @default(false)
+
+  // Relations
+  allocations        PropertyAllocation[]
+  media              Media[]
+
+  @@index([plotNumber])
+  @@map("properties")
+}
+
+model PropertyAllocation {
+  id            String    @id @default(uuid())
+  userId        String
+  propertyId    String
+  allocatedAt   DateTime  @default(now())
+  isDeleted     Boolean   @default(false)
+
+  // Relations
+  user          User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+  property      Property  @relation(fields: [propertyId], references: [id], onDelete: Cascade)
+  payments      Payment[]
+
+  @@unique([userId, propertyId])
+  @@map("property_allocations")
+}
+
+model Document {
+  id            String               @id @default(uuid())
+  userId        String
+  name          String               // Sale Deed, Soil Report, Registration Copy, etc.
+  type          String               // file extension or document category
+  fileUrl       String
+  status        DocumentStatus       @default(UPLOADED)
+  remarks       String?
+  uploadedAt    DateTime             @default(now())
+  updatedAt     DateTime             @updatedAt
+  isDeleted     Boolean              @default(false)
+
+  // Relations
+  user          User                 @relation(fields: [userId], references: [id], onDelete: Cascade)
+  statusHistory DocumentStatusHistory[]
+
+  @@index([userId, status])
+  @@map("documents")
+}
+
+model DocumentStatusHistory {
+  id         String         @id @default(uuid())
+  documentId String
+  status     DocumentStatus
+  changedBy  String         // Admin User ID or "SYSTEM"
+  remarks    String?
+  changedAt  DateTime       @default(now())
+
+  // Relations
+  document   Document       @relation(fields: [documentId], references: [id], onDelete: Cascade)
+
+  @@map("document_status_history")
+}
+
+model Payment {
+  id                    String             @id @default(uuid())
+  propertyAllocationId  String
+  installmentNumber     Int
+  amountDue             Float
+  amountPaid            Float              @default(0.0)
+  dueDate               DateTime
+  paidAt                DateTime?
+  status                PaymentStatus      @default(PENDING)
+  createdAt             DateTime           @default(now())
+  updatedAt             DateTime           @updatedAt
+
+  // Relations
+  allocation            PropertyAllocation @relation(fields: [propertyAllocationId], references: [id], onDelete: Cascade)
+  invoices              Invoice[]
+
+  @@map("payments")
+}
+
+model Invoice {
+  id          String   @id @default(uuid())
+  paymentId   String
+  invoiceNum  String   @unique // e.g. "INV-2026-0001"
+  pdfUrl      String
+  issuedAt    DateTime @default(now())
+
+  // Relations
+  payment     Payment  @relation(fields: [paymentId], references: [id], onDelete: Cascade)
+
+  @@map("invoices")
+}
+
+model Media {
+  id          String    @id @default(uuid())
+  propertyId  String
+  type        MediaType @default(IMAGE)
+  url         String
+  title       String
+  caption     String?
+  uploadedAt  DateTime  @default(now())
+
+  // Relations
+  property    Property  @relation(fields: [propertyId], references: [id], onDelete: Cascade)
+
+  @@map("media")
+}
+
+model Notification {
+  id        String   @id @default(uuid())
+  userId    String
+  title     String
+  message   String
+  isRead    Boolean  @default(false)
+  createdAt DateTime @default(now())
+
+  // Relations
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@map("notifications")
+}
+
+model AdminLog {
+  id        String   @id @default(uuid())
+  adminId   String
+  action    String   // e.g. "VERIFIED_DOCUMENT", "ALLOCATED_PROPERTY"
+  details   String
+  createdAt DateTime @default(now())
+
+  // Relations
+  admin     User     @relation("AdminActionOwner", fields: [adminId], references: [id], onDelete: Cascade)
+
+  @@map("admin_logs")
+}

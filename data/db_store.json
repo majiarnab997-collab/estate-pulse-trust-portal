@@ -1,0 +1,389 @@
+{
+  "users": [
+    {
+      "id": "usr-admin-1",
+      "email": "admin@elitehomes.com",
+      "passwordHash": "$2b$10$/fG1BoVA.gHR.3aCC7f19OccdpQtk5H9CPfGvWiHBsUKiFckUFwfK",
+      "name": "Eleanor Vance",
+      "phone": "+1 (800) 555-0199",
+      "role": "ADMIN",
+      "createdAt": "2026-01-01T08:00:00.000Z"
+    },
+    {
+      "id": "usr-cust-john",
+      "email": "john.doe@gmail.com",
+      "passwordHash": "$2b$10$/fG1BoVA.gHR.3aCC7f19ODVjyC8wVTcZAvJahKo97TgtPRMvp9Pm",
+      "name": "John Doe",
+      "phone": "+1 (415) 555-2671",
+      "role": "CUSTOMER",
+      "createdAt": "2026-02-15T10:30:00.000Z"
+    },
+    {
+      "id": "usr-cust-sarah",
+      "email": "sarah.smith@gmail.com",
+      "passwordHash": "$2b$10$/fG1BoVA.gHR.3aCC7f19OtwLh5ehvEst0A8a4cO.AmTFWNVYp9uy",
+      "name": "Sarah Smith",
+      "phone": "+1 (206) 555-8942",
+      "role": "CUSTOMER",
+      "createdAt": "2026-03-10T14:20:00.000Z"
+    }
+  ],
+  "properties": [
+    {
+      "id": "prop-bangalore-452",
+      "plotNumber": "Plot #452",
+      "plotSize": "2,400 sq.ft. (60x40 Grand Villa Lot)",
+      "location": "Elite Meadows, Phase II, Sarjapur, Bangalore",
+      "googleMapsUrl": "https://maps.google.com/?q=Sarjapur,Bangalore",
+      "projectPhase": "Phase II - Brickwork & Plastering Stage",
+      "amenities": [
+        "Private Clubhouse & Gymnasium",
+        "Acre-wide Central Park & Water Body",
+        "Eco-friendly Rainwater Harvesting System",
+        "24/7 Smart Surveillance & Security",
+        "Underground Smart Cabling Grid"
+      ],
+      "constructionStatus": 65,
+      "brochureUrl": "https://elitehomes.com/brochure/meadows_phase2.pdf",
+      "legalClearance": true,
+      "createdAt": "2026-01-10T09:00:00.000Z"
+    },
+    {
+      "id": "prop-hyderabad-108",
+      "plotNumber": "Plot #108",
+      "plotSize": "1,200 sq.ft. (40x30 Executive Lot)",
+      "location": "Royal Retreat Phase I, Gachibowli, Hyderabad",
+      "googleMapsUrl": "https://maps.google.com/?q=Gachibowli,Hyderabad",
+      "projectPhase": "Phase I - Foundation & Excavation Stage",
+      "amenities": [
+        "Community Swimming Pool",
+        "Children's Play Zone & Amphitheater",
+        "Paved Tree-Lined Walkways",
+        "Automated Smart Gate Controls",
+        "Solar Street Lighting System"
+      ],
+      "constructionStatus": 30,
+      "brochureUrl": "https://elitehomes.com/brochure/royal_retreat.pdf",
+      "legalClearance": true,
+      "createdAt": "2026-02-01T09:00:00.000Z"
+    }
+  ],
+  "allocations": [
+    {
+      "id": "alloc-john",
+      "userId": "usr-cust-john",
+      "propertyId": "prop-bangalore-452",
+      "allocatedAt": "2026-02-18T11:00:00.000Z"
+    },
+    {
+      "id": "alloc-sarah",
+      "userId": "usr-cust-sarah",
+      "propertyId": "prop-hyderabad-108",
+      "allocatedAt": "2026-03-12T15:00:00.000Z"
+    }
+  ],
+  "documents": [
+    {
+      "id": "doc-1779890453349",
+      "userId": "usr-cust-john",
+      "name": "Municipal Tax receipt - my_resume(python)",
+      "type": "PDF Link",
+      "fileUrl": "https://elitehomes.com/vault/uploads/1779890453040_my_resume(python).pdf",
+      "status": "UPLOADED",
+      "remarks": "Applicant drag-uploaded files directly from customer dashboard.",
+      "uploadedAt": "2026-05-27T14:00:53.349Z",
+      "updatedAt": "2026-05-27T14:00:53.349Z"
+    },
+    {
+      "id": "doc-1779890453344",
+      "userId": "usr-cust-john",
+      "name": "Municipal Tax receipt - my_resume(python)",
+      "type": "PDF Link",
+      "fileUrl": "https://elitehomes.com/vault/uploads/1779890453040_my_resume(python).pdf",
+      "status": "UPLOADED",
+      "remarks": "Applicant drag-uploaded files directly from customer dashboard.",
+      "uploadedAt": "2026-05-27T14:00:53.344Z",
+      "updatedAt": "2026-05-27T14:00:53.344Z"
+    },
+    {
+      "id": "doc-sale-deed-john",
+      "userId": "usr-cust-john",
+      "name": "Sale Deed Agreement (Draft)",
+      "type": "PDF Document",
+      "fileUrl": "https://elitehomes.com/vault/docs/john_sale_deed_signed.pdf",
+      "status": "APPROVED",
+      "remarks": "Legally approved by chief counsel. Official physical copy ready for registration.",
+      "uploadedAt": "2026-02-20T14:00:00.000Z",
+      "updatedAt": "2026-02-25T16:30:00.000Z"
+    },
+    {
+      "id": "doc-soil-report-john",
+      "userId": "usr-cust-john",
+      "name": "Geotechnical Soil Bearing Capacity Report",
+      "type": "Engineering Analysis Data",
+      "fileUrl": "https://elitehomes.com/vault/docs/meadows_soil_report_zoneB.pdf",
+      "status": "APPROVED",
+      "remarks": "Soil load bearing index confirmed safe for multi-tier premium villa structure.",
+      "uploadedAt": "2026-02-22T09:12:00.000Z",
+      "updatedAt": "2026-02-23T11:00:00.000Z"
+    },
+    {
+      "id": "doc-legal-clearance-john",
+      "userId": "usr-cust-john",
+      "name": "Legal Title Clearance Certificate",
+      "type": "Legal Clearance",
+      "fileUrl": "https://elitehomes.com/vault/docs/john_title_clearance.pdf",
+      "status": "APPROVED",
+      "remarks": "All local municipality land audits clear. No external litigation matches detected.",
+      "uploadedAt": "2026-02-25T11:30:00.000Z",
+      "updatedAt": "2026-02-27T10:00:00.000Z"
+    },
+    {
+      "id": "doc-reg-john",
+      "userId": "usr-cust-john",
+      "name": "Government Property Registration Receipt",
+      "type": "Scan / Land Certificate",
+      "fileUrl": "https://elitehomes.com/vault/docs/john_prop_reg_copy.pdf",
+      "status": "UNDER_REVIEW",
+      "remarks": "Submitted to sub-registrar portal on May 12. Stamp certificate generation underway.",
+      "uploadedAt": "2026-05-12T09:00:00.000Z",
+      "updatedAt": "2026-05-12T09:00:00.000Z"
+    },
+    {
+      "id": "doc-tax-john",
+      "userId": "usr-cust-john",
+      "name": "Municipal Non-Agricultural Tax Audited Clearance",
+      "type": "Tax Documents",
+      "fileUrl": "https://elitehomes.com/vault/docs/john_tax_receipt.pdf",
+      "status": "UPLOADED",
+      "remarks": "Awaiting legal expert assignment for compliance verification.",
+      "uploadedAt": "2026-05-25T14:40:00.000Z",
+      "updatedAt": "2026-05-25T14:40:00.000Z"
+    },
+    {
+      "id": "doc-sale-deed-sarah",
+      "userId": "usr-cust-sarah",
+      "name": "Sale Deed Agreement (Draft)",
+      "type": "PDF Document",
+      "fileUrl": "https://elitehomes.com/vault/docs/sarah_sale_deed.pdf",
+      "status": "VERIFIED",
+      "remarks": "Initial notary verification complete. Ready for applicant review.",
+      "uploadedAt": "2026-03-15T11:00:00.000Z",
+      "updatedAt": "2026-03-20T10:00:00.000Z"
+    }
+  ],
+  "statusHistory": [
+    {
+      "id": "hist-1",
+      "documentId": "doc-sale-deed-john",
+      "status": "UPLOADED",
+      "changedBy": "usr-cust-john",
+      "remarks": "Initial signoff submitted.",
+      "changedAt": "2026-02-20T14:00:00.000Z"
+    },
+    {
+      "id": "hist-2",
+      "documentId": "doc-sale-deed-john",
+      "status": "UNDER_REVIEW",
+      "changedBy": "usr-admin-1",
+      "remarks": "Assigned to property legal counselor for contract layout validation.",
+      "changedAt": "2026-02-23T10:00:00.000Z"
+    },
+    {
+      "id": "hist-3",
+      "documentId": "doc-sale-deed-john",
+      "status": "APPROVED",
+      "changedBy": "usr-admin-1",
+      "remarks": "Contract finalized and approved.",
+      "changedAt": "2026-02-25T16:30:00.000Z"
+    },
+    {
+      "id": "hist-1779890453344",
+      "documentId": "doc-1779890453344",
+      "status": "UPLOADED",
+      "changedBy": "John Doe",
+      "remarks": "Document uploaded successfully",
+      "changedAt": "2026-05-27T14:00:53.344Z"
+    },
+    {
+      "id": "hist-1779890453349",
+      "documentId": "doc-1779890453349",
+      "status": "UPLOADED",
+      "changedBy": "John Doe",
+      "remarks": "Document uploaded successfully",
+      "changedAt": "2026-05-27T14:00:53.349Z"
+    }
+  ],
+  "payments": [
+    {
+      "id": "pay-john-1",
+      "propertyAllocationId": "alloc-john",
+      "installmentNumber": 1,
+      "amountDue": 1500000,
+      "amountPaid": 1500000,
+      "dueDate": "2026-02-28T00:00:00.000Z",
+      "paidAt": "2026-02-25T11:45:00.000Z",
+      "status": "PAID",
+      "createdAt": "2026-02-18T11:00:00.000Z"
+    },
+    {
+      "id": "pay-john-2",
+      "propertyAllocationId": "alloc-john",
+      "installmentNumber": 2,
+      "amountDue": 2500000,
+      "amountPaid": 2500000,
+      "dueDate": "2026-04-15T00:00:00.000Z",
+      "paidAt": "2026-04-12T16:20:00.000Z",
+      "status": "PAID",
+      "createdAt": "2026-02-18T11:00:00.000Z"
+    },
+    {
+      "id": "pay-john-3",
+      "propertyAllocationId": "alloc-john",
+      "installmentNumber": 3,
+      "amountDue": 2000000,
+      "amountPaid": 1000000,
+      "dueDate": "2026-05-20T00:00:00.000Z",
+      "paidAt": "2026-05-18T10:00:00.000Z",
+      "status": "OVERDUE",
+      "createdAt": "2026-02-18T11:00:00.000Z"
+    },
+    {
+      "id": "pay-john-4",
+      "propertyAllocationId": "alloc-john",
+      "installmentNumber": 4,
+      "amountDue": 1500000,
+      "amountPaid": 0,
+      "dueDate": "2026-08-30T00:00:00.000Z",
+      "status": "PENDING",
+      "createdAt": "2026-02-18T11:00:00.000Z"
+    },
+    {
+      "id": "pay-sarah-1",
+      "propertyAllocationId": "alloc-sarah",
+      "installmentNumber": 1,
+      "amountDue": 1200000,
+      "amountPaid": 1200000,
+      "dueDate": "2026-03-20T00:00:00.000Z",
+      "paidAt": "2026-03-18T14:00:00.000Z",
+      "status": "PAID",
+      "createdAt": "2026-03-12T15:00:00.000Z"
+    },
+    {
+      "id": "pay-sarah-2",
+      "propertyAllocationId": "alloc-sarah",
+      "installmentNumber": 2,
+      "amountDue": 2000000,
+      "amountPaid": 0,
+      "dueDate": "2026-06-30T00:00:00.000Z",
+      "status": "PENDING",
+      "createdAt": "2026-03-12T15:00:00.000Z"
+    }
+  ],
+  "invoices": [
+    {
+      "id": "inv-1",
+      "paymentId": "pay-john-1",
+      "invoiceNum": "EHP-MEAD-26-4521",
+      "pdfUrl": "https://elitehomes.com/vault/invoices/inv_john_first_deposit.pdf",
+      "issuedAt": "2026-02-25T12:00:00.000Z"
+    },
+    {
+      "id": "inv-2",
+      "paymentId": "pay-john-2",
+      "invoiceNum": "EHP-MEAD-26-4522",
+      "pdfUrl": "https://elitehomes.com/vault/invoices/inv_john_foundation_phase.pdf",
+      "issuedAt": "2026-04-12T17:00:00.000Z"
+    }
+  ],
+  "media": [
+    {
+      "id": "med-1",
+      "propertyId": "prop-bangalore-452",
+      "type": "IMAGE",
+      "url": "https://images.unsplash.com/photo-1541888946425-d81bb19240f5?auto=format&fit=crop&q=80&w=800",
+      "title": "Foundation Footing Structural Pour Complete",
+      "caption": "High tensile steel reinforcers aligned. Grade M25 concrete curing process monitoring online.",
+      "uploadedAt": "2026-03-05T10:00:00.000Z"
+    },
+    {
+      "id": "med-2",
+      "propertyId": "prop-bangalore-452",
+      "type": "IMAGE",
+      "url": "https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&q=80&w=800",
+      "title": "Ground Floor Pillar Cast & Demodeling Stage",
+      "caption": "Main load points poured and sealed. Structural integrity audits scored higher than base margins.",
+      "uploadedAt": "2026-04-15T15:30:00.000Z"
+    },
+    {
+      "id": "med-3",
+      "propertyId": "prop-bangalore-452",
+      "type": "IMAGE",
+      "url": "https://images.unsplash.com/photo-1590069261209-f8e9b8642343?auto=format&fit=crop&q=80&w=800",
+      "title": "Brickwork Skeleton & Electrical Layout Integration",
+      "caption": "First level partition bricks laid. Conduits for underground optical fibers integrated.",
+      "uploadedAt": "2026-05-10T11:00:00.000Z"
+    },
+    {
+      "id": "med-4",
+      "propertyId": "prop-bangalore-452",
+      "type": "VIDEO",
+      "url": "https://www.w3schools.com/html/mov_bbb.mp4",
+      "title": "Elite Meadows Aerial Site Drone Walkthrough",
+      "caption": "Panoramic footage showcasing ongoing road asphalt additions, storm drains, and security boundary grids.",
+      "uploadedAt": "2026-05-24T17:20:00.000Z"
+    },
+    {
+      "id": "med-5",
+      "propertyId": "prop-hyderabad-108",
+      "type": "IMAGE",
+      "url": "https://images.unsplash.com/photo-1581094288338-2314dddb7eed?auto=format&fit=crop&q=80&w=800",
+      "title": "Heavy Excavator Site Grading Operations",
+      "caption": "Soil load testing and site clearing is ongoing on-schedule.",
+      "uploadedAt": "2026-03-25T14:00:00.000Z"
+    }
+  ],
+  "notifications": [
+    {
+      "id": "not-1779890453349",
+      "userId": "usr-cust-john",
+      "title": "Document Submitted Successfully",
+      "message": "Your document \"Municipal Tax receipt - my_resume(python)\" was uploaded successfully and is now placed in queue for validation review.",
+      "isRead": false,
+      "createdAt": "2026-05-27T14:00:53.349Z"
+    },
+    {
+      "id": "not-1779890453347",
+      "userId": "usr-cust-john",
+      "title": "Document Submitted Successfully",
+      "message": "Your document \"Municipal Tax receipt - my_resume(python)\" was uploaded successfully and is now placed in queue for validation review.",
+      "isRead": false,
+      "createdAt": "2026-05-27T14:00:53.347Z"
+    },
+    {
+      "id": "not-john-1",
+      "userId": "usr-cust-john",
+      "title": "Title Deed Signed Officially",
+      "message": "Your draft Sale Deed Agreement has been cleared by the chief legal compliance audit counselor. Physical copies can be signed at the Bangalore main registry.",
+      "isRead": false,
+      "createdAt": "2026-02-25T16:35:00.000Z"
+    },
+    {
+      "id": "not-john-2",
+      "userId": "usr-cust-john",
+      "title": "Construction Phase III Commenced",
+      "message": "Masonry partition works and mechanical plumbing alignments are active for your grand villa at Plot #452.",
+      "isRead": false,
+      "createdAt": "2026-05-10T11:30:00.000Z"
+    }
+  ],
+  "adminLogs": [
+    {
+      "id": "log-1",
+      "adminId": "usr-admin-1",
+      "action": "INITIAL_DATABASE_SEED",
+      "details": "Established primary developer, admin, customer allocations blueprints and legal verification timelines.",
+      "createdAt": "2026-05-27T13:30:00.000Z"
+    }
+  ]
+}
