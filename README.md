@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # 🏢 Enterprise Customer Trust Portal for Real Estate
 
 A production-grade, stateful full-stack transparency platform designed to build unshakable buyer confidence, eliminate repetitive support inquires by up to 75%, and provide unified real-time tracking for property locations, document review steppers, installment ledgers, and construction updates.
@@ -227,3 +228,7 @@ To make testing painless, the login gate incorporates instant pre-fill buttons:
     1. Click the **Consult Gemini AI** tab.
     2. Submit: *"Why is my registered copy draft pending?"* or *"How much is my remaining balance?"*
     3. The model reviews your active database records statefully, detailing the EXACT figures and remarks stored on the server!
+=======
+# estate-pulse-trust-portal
+A full-stack Customer Trust Portal for Real Estate built with Next.js, Gemini API, and TypeScript.
+>>>>>>> 7e42974330db549d9d2a5ec4e494c0f927afecdb
